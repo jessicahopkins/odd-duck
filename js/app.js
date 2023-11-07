@@ -1,15 +1,15 @@
-const productImagesContainer = document.getElementById("productImages");
-const reportContainer = document.getElementById("report");
+const productImagesContainer = document.getElementById('productImages');
+const reportContainer = document.getElementById('report');
 
 const image1 = document.querySelector('#productImages img:first-child');
 const image2 = document.querySelector('#productImages img:nth-child(2)');
 const image3 = document.querySelector('#productImages img:nth-child(3)');
 
-const button = document.getElementById("showResults");
+const button = document.getElementById('showResults');
 
 let state = {
   numClicks: 0,
-  numClicksAllowed: 25,
+  numClicksAllowed: 10,
   allProductImages: [],
 };
 
@@ -63,11 +63,11 @@ function renderProducts(){
 }
 
 function renderResultsButton() {
-  button.style.display = "block";
+  button.style.display = 'block';
 }
 
 function renderResults() {
-  console.log("Showing the results");
+  console.log('Showing the results');
 }
 
 function handleClick(event) {
@@ -115,7 +115,7 @@ new Products('pen', 'img/pen.jpg');
 new Products('pet-sweep', 'img/pet-sweep.jpg');
 new Products('scissors', 'img/scissors.jpg');
 new Products('shark', 'img/shark.jpg');
-new Products('sweep', 'img/sweep.jpg');
+new Products('sweep', 'img/sweep.png');
 new Products('tauntaun', 'img/tauntaun.jpg');
 new Products('unicorn', 'img/unicorn.jpg');
 new Products('water-can', 'img/water-can.jpg');
