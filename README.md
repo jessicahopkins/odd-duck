@@ -8,7 +8,7 @@ I'm building a web page for the Odd Duck Product Co that will survey employees o
 
 ### Links and Resources
 
-* [submission PR](http://xyz.com)
+* [submission PR](https://github.com/jessicahopkins/odd-duck/pull/1#issue-1980501576)
 * [Grid Layoutit!](https://grid.layoutit.com/)
 * [My Saved Grid Layout](https://grid.layoutit.com/?id=WtH57Yx)
 * [ChatGPT](https://chat.openai.com/share/7c28965b-4f2a-4b3a-baf3-a0996f017f6a)
