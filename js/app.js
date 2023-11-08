@@ -110,6 +110,7 @@ function renderResults() {
     type: 'bar',
     data: data,
     options: {
+      responsive: false,
       scales: {
         y: {
           beginAtZero: true
