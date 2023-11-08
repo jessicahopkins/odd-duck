@@ -69,6 +69,9 @@ function renderResultsButton() {
 
 function renderResults() {
 
+  // Create Canvas Chart
+  // Collect the results from votes into arrays in order to feed the chart data
+
   let productNames = [];
   let productVotes = [];
   let productViews = [];
@@ -91,14 +94,14 @@ function renderResults() {
         data: productVotes,
         borderWidth: 1,
         backgroundColor: [
-          'blue'
+          '#AAE2C3'
         ]
       },
       {
         label: "Views",
         data: productViews,
         borderWidth: 1,
-        backgroundColor: ['red']
+        backgroundColor: ['#D2C0E0']
       }
     ]
   };
@@ -115,23 +118,9 @@ function renderResults() {
     }
   };
 
+  // reportContainer is the HTML <canvas> element for chartJS
   const myChart = new Chart(reportContainer, config);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function handleClick(event) {
@@ -150,7 +139,6 @@ function handleClick(event) {
     removeListener();
 
     renderResultsButton();
-
   } else {
     renderProducts();
   }
