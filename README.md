@@ -4,6 +4,8 @@
 
 I'm building a web page for the Odd Duck Product Co that will survey employees of the company, asking them to help select the next product going to market.  The functionality includes:  display of three product images that rotate after an image is selected, rotation will end after 25 times, the number of clicks will be collected/stored and results displayed on the page.  The rotating image functionality has been completed.  Report functionality is still to come.
 
+New report functionality added.  Once 25 items have been selected, user will click the "View Results" button to display a bar graph displaying the results.  Additional styling was added to the images, results button, text, chart.
+
 ### Author: Jessica Hopkins
 
 ### Links and Resources
@@ -23,3 +25,4 @@ I'm building a web page for the Odd Duck Product Co that will survey employees o
 
 * I'm missing some of the lab functionality, such as getting the report to print.  I ran out of time to tackle that requirement today.  I was able to get part of the grid CSS to work but having issues with one section/column (Report/Results) column.  Also my View Results button needs to be hidden when making selections.
 * I primarily used the class demo for this lab along with ChatGPT and the grid layout tool website.
+* Report functionality added in lab 12 along with additional styling. Accessibility score remains the same at 100.
