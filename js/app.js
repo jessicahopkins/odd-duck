@@ -5,11 +5,11 @@ const image1 = document.querySelector('#productImages img:first-child');
 const image2 = document.querySelector('#productImages img:nth-child(2)');
 const image3 = document.querySelector('#productImages img:nth-child(3)');
 
-const button = document.getElementById('showResults');
+const button = document.getElementById('viewResults');
 
 let state = {
   numClicks: 0,
-  numClicksAllowed: 10,
+  numClicksAllowed: 25,
   allProductImages: [],
 };
 
@@ -66,9 +66,73 @@ function renderResultsButton() {
   button.style.display = 'block';
 }
 
+
 function renderResults() {
-  console.log('Showing the results');
+
+  let productNames = [];
+  let productVotes = [];
+  let productViews = [];
+
+  for( let i = 0; i < state.allProductImages.length; i++) {
+    productNames.push( state.allProductImages[i].name );
+    productVotes.push( state.allProductImages[i].votes);
+    productViews.push( state.allProductImages[i].views);
+  }
+
+  console.log(productNames);
+  console.log(productVotes);
+  console.log(productViews);
+
+  const data = {
+    labels: productNames,
+    datasets: [
+      {
+        label: 'Votes',
+        data: productVotes,
+        borderWidth: 1,
+        backgroundColor: [
+          'blue'
+        ]
+      },
+      {
+        label: "Views",
+        data: productViews,
+        borderWidth: 1,
+        backgroundColor: ['red']
+      }
+    ]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  const myChart = new Chart(reportContainer, config);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function handleClick(event) {
   let productName = event.target.alt;
