@@ -13,11 +13,11 @@ let state = {
   allProductImages: [],
 };
 
-function Products( name, image ) {
+function Products( name, image, votes=0, views=0 ) {
   this.name = name;
   this.imageFile = image;
-  this.votes = 0;
-  this.views = 0;
+  this.votes = votes;
+  this.views = views;
   state.allProductImages.push(this);
 }
 
@@ -27,8 +27,37 @@ function loadLocalStorageData() {
   const storedData = localStorage.getItem('productImagesData');
   if (storedData) {
     const parsedData = JSON.parse(storedData);
-    state.allProductImages = parsedData.allProductImages;
+    // console.log(parsedData);
+    // Traverse the array of objects in parsedData for each one of those create a new product
+    for(let i = 0; i < parsedData.allProductImages.length; i++ ) {
+
+      let p = parsedData.allProductImages[i];
+      new Products(p.name, p.imageFile, p.votes, p.views);
+
+    }
+
+    // state.allProductImages = parsedData.allProductImages;
     // state.numClicks = parsedData.numClicks; (ChatGPT suggested but had to remove to let me continue to click after refresh)
+  } else{
+    new Products('bag', 'img/bag.jpg');
+    new Products('banana', 'img/banana.jpg');
+    new Products('bathroom', 'img/bathroom.jpg');
+    new Products('boots', 'img/boots.jpg');
+    new Products('breakfast', 'img/breakfast.jpg');
+    new Products('bubblegum', 'img/bubblegum.jpg');
+    new Products('chair', 'img/chair.jpg');
+    new Products('cthulhu', 'img/cthulhu.jpg');
+    new Products('dog-duck', 'img/dog-duck.jpg');
+    new Products('dragon', 'img/dragon.jpg');
+    new Products('pen', 'img/pen.jpg');
+    new Products('pet-sweep', 'img/pet-sweep.jpg');
+    new Products('scissors', 'img/scissors.jpg');
+    new Products('shark', 'img/shark.jpg');
+    new Products('sweep', 'img/sweep.png');
+    new Products('tauntaun', 'img/tauntaun.jpg');
+    new Products('unicorn', 'img/unicorn.jpg');
+    new Products('water-can', 'img/water-can.jpg');
+    new Products('wine-glass', 'img/wine-glass.jpg');
   }
   console.log(state);
 }
@@ -189,28 +218,10 @@ function removeListener() {
   productImagesContainer.removeEventListener('click', handleClick);
 }
 
-new Products('bag', 'img/bag.jpg');
-new Products('banana', 'img/banana.jpg');
-new Products('bathroom', 'img/bathroom.jpg');
-new Products('boots', 'img/boots.jpg');
-new Products('breakfast', 'img/breakfast.jpg');
-new Products('bubblegum', 'img/bubblegum.jpg');
-new Products('chair', 'img/chair.jpg');
-new Products('cthulhu', 'img/cthulhu.jpg');
-new Products('dog-duck', 'img/dog-duck.jpg');
-new Products('dragon', 'img/dragon.jpg');
-new Products('pen', 'img/pen.jpg');
-new Products('pet-sweep', 'img/pet-sweep.jpg');
-new Products('scissors', 'img/scissors.jpg');
-new Products('shark', 'img/shark.jpg');
-new Products('sweep', 'img/sweep.png');
-new Products('tauntaun', 'img/tauntaun.jpg');
-new Products('unicorn', 'img/unicorn.jpg');
-new Products('water-can', 'img/water-can.jpg');
-new Products('wine-glass', 'img/wine-glass.jpg');
 
-renderProducts();
-setupListeners();
+
+// renderProducts();
+// setupListeners();
 
 // Initialize the app - ChatGPT
 initializeApp();
