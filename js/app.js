@@ -21,6 +21,28 @@ function Products( name, image ) {
   state.allProductImages.push(this);
 }
 
+// Suggestion from ChatGPT
+// Load data from local storage
+function loadLocalStorageData() {
+  const storedData = localStorage.getItem('productImagesData');
+  if (storedData) {
+    const parsedData = JSON.parse(storedData);
+    state.allProductImages = parsedData.allProductImages;
+    // state.numClicks = parsedData.numClicks; (ChatGPT suggested but had to remove to let me continue to click after refresh)
+  }
+  console.log(state);
+}
+
+// Save data to local storage - ChatGPT
+function saveLocalStorageData() {
+  const dataToStore = {
+    allProductImages: state.allProductImages,
+    // numClicks: state.numClicks,
+  };
+  localStorage.setItem('productImagesData', JSON.stringify(dataToStore));
+}
+
+
 function renderProducts(){
   function pickRandomProduct() {
     return Math.floor( Math.random() * state.allProductImages.length );
@@ -60,6 +82,9 @@ function renderProducts(){
   state.allProductImages[product1].views++;
   state.allProductImages[product2].views++;
   state.allProductImages[product3].views++;
+
+  // Added for local storage lab per ChatGPT
+  // saveLocalStorageData(); - This did not work, was not needed, commented out
 }
 
 function renderResultsButton() {
@@ -110,6 +135,7 @@ function renderResults() {
     type: 'bar',
     data: data,
     options: {
+      responsive: false,
       scales: {
         y: {
           beginAtZero: true
@@ -120,8 +146,16 @@ function renderResults() {
 
   // reportContainer is the HTML <canvas> element for chartJS
   const myChart = new Chart(reportContainer, config);
+
+  // saveLocalStorageData(); // Save data to local storage after rendering per ChatGPT - Was not needed so removed
 }
 
+// Restoring local storage data and initializing listeners
+function initializeApp() {
+  loadLocalStorageData();
+  renderProducts();
+  setupListeners();
+}
 
 function handleClick(event) {
   let productName = event.target.alt;
@@ -142,6 +176,8 @@ function handleClick(event) {
   } else {
     renderProducts();
   }
+
+  saveLocalStorageData(); // Save data to local storage after handling click per ChatGPT
 }
 
 function setupListeners() {
@@ -176,6 +212,8 @@ new Products('wine-glass', 'img/wine-glass.jpg');
 renderProducts();
 setupListeners();
 
+// Initialize the app - ChatGPT
+initializeApp();
 
 
 
