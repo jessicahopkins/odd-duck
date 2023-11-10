@@ -2,7 +2,7 @@
 
 ## Odd-Duck
 
-I'm building a web page for the Odd Duck Product Co that will survey employees of the company, asking them to help select the next product going to market.  The functionality includes:  display of three product images that rotate after an image is selected, rotation will end after 25 times, the number of clicks will be collected/stored and results displayed on the page.  The rotating image functionality has been completed.  Report functionality is still to come.
+I created a web page for the Odd Duck Product Co that will survey employees of the company, asking them to help select the next product going to market.  The functionality includes:  display of three product images that rotate after an image is selected, rotation will end after 25 times, the number of clicks will be collected/stored and results displayed on the page.  The rotating image functionality has been completed.  Report functionality is still to come.
 
 New report functionality added.  Once 25 items have been selected, user will click the "View Results" button to display a bar graph displaying the results.  Additional styling was added to the images, results button, text, chart.
 

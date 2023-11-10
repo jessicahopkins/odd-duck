@@ -27,7 +27,7 @@ function loadLocalStorageData() {
   const storedData = localStorage.getItem('productImagesData');
   if (storedData) {
     const parsedData = JSON.parse(storedData);
-    // console.log(parsedData);
+
     // Traverse the array of objects in parsedData for each one of those create a new product
     for(let i = 0; i < parsedData.allProductImages.length; i++ ) {
 
@@ -66,7 +66,6 @@ function loadLocalStorageData() {
 function saveLocalStorageData() {
   const dataToStore = {
     allProductImages: state.allProductImages,
-    // numClicks: state.numClicks,
   };
   localStorage.setItem('productImagesData', JSON.stringify(dataToStore));
 }
@@ -218,10 +217,6 @@ function removeListener() {
   productImagesContainer.removeEventListener('click', handleClick);
 }
 
-
-
-// renderProducts();
-// setupListeners();
 
 // Initialize the app - ChatGPT
 initializeApp();
